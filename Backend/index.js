@@ -16,7 +16,7 @@ dotenv.config();
 const app = express();
 const PORT=  process.env.PORT || 5000;
 
-app.use(cors({ origin: 'https://inspiring-mooncake-da7bb7.netlify.app', credentials: true })); // Adjust the origin as needed
+app.use(cors({ origin: 'https://focustrail.netlify.app', credentials: true })); // Adjust the origin as needed
 app.use(express.json());
 app.use(cookieParser()); // allows us to parse incoming cookies
 
