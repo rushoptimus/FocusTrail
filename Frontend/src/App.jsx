@@ -52,6 +52,24 @@ function App() {
     <BrowserRouter>
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
+        <Route
+  path="*"
+  element={
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '2rem',
+        fontWeight: 'bold',
+      }}
+    >
+      Page Not Found
+    </div>
+  }
+/>
+
 
         <Route path="/" element={
 
