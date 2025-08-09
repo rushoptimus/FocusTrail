@@ -2,7 +2,7 @@ import {create } from "zustand";
 import axios from "axios";
 
 const API_BASE_URL = 'https://focustrail-backend.up.railway.app'; 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true; 
 
 export const useMoodStore = create((set) =>({
     moods:[],
@@ -14,11 +14,8 @@ export const useMoodStore = create((set) =>({
     addMood: async( mood ) =>{
         set({error:null});
         try{
-            const token = localStorage.getItem("token");
-            const response = await axios.post(`${API_BASE_URL}/api/auth/mood`,{mood},{
-                headers:{Authorization:`Bearer ${token}`}
-
-            });
+            const response = await axios.post(`${API_BASE_URL}/api/auth/mood`,{mood},
+             { withCredentials: true });
             set({todayMood: response.data.mood, error:null});
         }
         catch(error){
