@@ -53,36 +53,36 @@ function App() {
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route
-  path="*"
-  element={
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: '2rem',
-        fontWeight: 'bold',
-      }}
-    >
-      Page Not Found
-    </div>
-  }
-/>
+          path="*"
+          element={
+            <div
+              style={{
+                height: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '2rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Page Not Found
+            </div>
+          }  
+        />
 
 
         <Route path="/" element={
 
-            <SignUp />
-          } />
+          <SignUp />
+        } />
 
         <Route path="/login" element={
-        <RedirectAuthenticatedUser>
-          <Login />
-        </RedirectAuthenticatedUser>} />
+          <RedirectAuthenticatedUser>
+            <Login />
+          </RedirectAuthenticatedUser>} />
 
         <Route path='/verify-email' element={<VerifyEmail />} />
-        
+
         <Route path='/moodPage' element={
           <ProtectedRoute>
             <MoodPage />
@@ -94,28 +94,28 @@ function App() {
             <Dashboard />
           </ProtectedRoute>
         } />
-            <Route path="/Moodtracker" element={
+        <Route path="/Moodtracker" element={
           <ProtectedRoute>
             <MoodTracker />
           </ProtectedRoute>
         } />
 
-            <Route path="/Insights" element={
+        <Route path="/Insights" element={
           <ProtectedRoute>
             <Insights />
           </ProtectedRoute>
         } />
 
-        
+
         <Route path="/tasks" element={<ProtectedRoute>
           <TasksPage />
-        </ProtectedRoute>}  />
+        </ProtectedRoute>} />
 
-         <Route path="/Events" element={<ProtectedRoute>
+        <Route path="/Events" element={<ProtectedRoute>
           <EventsPage />
-        </ProtectedRoute>}  />
+        </ProtectedRoute>} />
 
-        
+
         <Route path="/forgot-password" element={<RedirectAuthenticatedUser>
           <ForgotPassword />
         </RedirectAuthenticatedUser>} />
