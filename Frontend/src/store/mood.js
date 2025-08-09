@@ -10,20 +10,17 @@ export const useMoodStore = create((set) =>({
     error:null,
     latestMood: null,
 
-    addMood: async ( mood ) =>{
-        set({error:null});
-        try{
-             const token = localStorage.getItem("token");
-            const response = await axios.post(`${API_BASE_URL}/api/auth/mood`,{mood},{
-                headers:{Authorization:`Bearer ${token}`}
-            });
-            set({todayMood: response.data.mood, error:null});
-        }
-        catch(error){
-            set({error: error.response?.data?.message || 'Failed to save mood'});
-            throw error;
-        }
-    },
+addMood: async (mood) => {
+  set({ error: null });
+  try {
+    const response = await axios.post(`${API_BASE_URL}/api/auth/mood`, { mood });
+    set({ todayMood: response.data.mood, error: null });
+  } catch (error) {
+    set({ error: error.response?.data?.message || 'Failed to save mood' });
+    throw error;
+  }
+}
+,
 
     fetchTodayMood: async () =>{
         set({error:null});
