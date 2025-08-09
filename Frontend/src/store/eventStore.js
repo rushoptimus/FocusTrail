@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API_BASE_URL = "http://localhost:5000";
+const API_BASE_URL = "focustrail-backend.up.railway.app";
 
 export const useEventStore = create((set) => ({
   events: [],
