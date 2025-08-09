@@ -72,9 +72,9 @@ function App() {
 
 
         <Route path="/" element={
-<RedirectAuthenticatedUser>
+
   <SignUp />
-</RedirectAuthenticatedUser>
+
         } />
 
         <Route path="/login" element={
