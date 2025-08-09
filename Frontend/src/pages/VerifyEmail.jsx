@@ -47,7 +47,7 @@ function VerifyEmail() {
         try{
             await VerifyEmail(verificationCode);
             toast.success("Email verified successfully!");
-            navigate('/dashboard');
+            navigate('/moodPage');
         }
         catch (error) {
             console.error("Error verifying email:", error);
