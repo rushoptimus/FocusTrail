@@ -126,13 +126,14 @@ const handleDownloadReport = () => {
   doc.text("Moods Summary", 14, yPos);
 
   if (todayMood?.moods?.length > 0) {
+    
     autoTable(doc, {
       head: [["#", "Mood", "Time"]],
-      body: todayMood.moods.map((m, i) => [
-        i + 1,
-        m.mood,
-        dayjs(m.time, "HH:mm").format("hh:mm A"),
-      ]),
+body: todayMood.moods.map((m, i) => {
+  const localDateTime = dayjs(`${date}T${m.time}`).add(5.5, 'hour');
+  return [i + 1, m.mood, localDateTime.format("hh:mm A")];
+}),
+
       startY: yPos + 5,
       theme: "striped",
       headStyles: { fillColor: [46, 204, 113] },
@@ -235,15 +236,21 @@ const handleDownloadReport = () => {
                                     <div className='w-full h-1 rounded-full bg-black'></div>
 
                                     <ul className="space-y-2 w-full  flex flex-col items-center overflow-y-auto justify-start mt-2 pt-2 h-full ">
-                                        {todayMood?.moods?.length > 0 ? (
-                                            todayMood.moods.map((mood, idx) => (
-                                                <li key={idx} className="bg-yellow-300 lg:text-lg sm:text-md text-sm w-full flex items-center justify-between capitalize px-[5%] text-black font-semibold  p-2 rounded-[5vh]">
-                                                   <span>{idx + 1}. )  {mood.mood} </span> <span> {dayjs(mood.time, "HH:mm").format("hh:mm A")} </span>
-                                                </li>
-                                            ))
-                                        ) : (
-                                            <li className="text-gray-500">No mood logs</li>
-                                        )}
+                                   {todayMood?.moods?.length > 0 ? (
+  todayMood.moods.map((mood, idx) => {
+    const localDateTime = dayjs(`${date}T${mood.time}`).add(5.5, 'hour');
+    const formattedTime = localDateTime.format("hh:mm A");
+    return (
+      <li key={idx} className="bg-yellow-300 lg:text-lg sm:text-md text-sm w-full flex items-center justify-between capitalize px-[5%] text-black font-semibold  p-2 rounded-[5vh]">
+        <span>{idx + 1}. )  {mood.mood} </span> 
+        <span>{formattedTime}</span>
+      </li>
+    );
+  })
+) : (
+  <li className="text-gray-500">No mood logs</li>
+)}
+
                                     </ul>
 
                                 </div>
