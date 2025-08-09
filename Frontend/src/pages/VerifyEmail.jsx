@@ -7,7 +7,7 @@ function VerifyEmail() {
     const [code, setCode] = useState(["", "", "", "", "", ""]);
     const inputRefs = useRef([]);
     const navigate = useNavigate();
-    const {VerifyEmail, error} = useAuthStore();
+    const {VerifyEmail,checkAuth, error} = useAuthStore();
 
 
     const handleChange = (index, value) => {
@@ -46,6 +46,7 @@ function VerifyEmail() {
         const verificationCode = code.join('');
         try{
             await VerifyEmail(verificationCode);
+            await checkAuth();
             toast.success("Email verified successfully!");
             navigate('/moodPage');
         }
