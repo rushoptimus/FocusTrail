@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const API_BASE_URL = "focustrail-backend.up.railway.app"; // Adjust based on your backend
+const API_BASE_URL = "https://focustrail-backend.up.railway.app"; // Adjust based on your backend
 
 export const useTaskStore = create((set) => ({
   tasks: [],

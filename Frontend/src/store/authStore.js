@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 import axios from 'axios';
 import { persist } from 'zustand/middleware';
-const API_BASE_URL = "focustrail-backend.up.railway.app";
+const API_BASE_URL = "https://focustrail-backend.up.railway.app";
  // Adjust this to your API base URL
 
 axios.defaults.withCredentials = true; // Enable sending cookies with requests

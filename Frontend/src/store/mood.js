@@ -1,7 +1,7 @@
 import {create } from "zustand";
 import axios from "axios";
 
-const API_BASE_URL = 'focustrail-backend.up.railway.app'; 
+const API_BASE_URL = 'https://focustrail-backend.up.railway.app'; 
 axios.defaults.withCredentials = true;
 
 export const useMoodStore = create((set) =>({
