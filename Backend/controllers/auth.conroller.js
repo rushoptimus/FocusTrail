@@ -177,14 +177,14 @@ export const checkAuth = async (req, res) => {
 export const updateProfileImage = async (req, res) => {
     try {
         const { imageUrl } = req.body;
-        const userId = req.userID; // from verifyToken middleware
+        const userID = req.userID; // from verifyToken middleware
 
         if (!imageUrl) {
             return res.status(400).json({ success: false, message: "Image URL is required" });
         }
 
         const user = await User.findByIdAndUpdate(
-            userId,
+            userID,
             { image: imageUrl },
             { new: true }
         ).select("-password");
