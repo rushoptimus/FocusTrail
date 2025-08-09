@@ -1,8 +1,8 @@
 import {create } from "zustand";
 import axios from "axios";
 
-const API_BASE_URL = 'https://focustrail-backend.up.railway.app'; 
-axios.defaults.withCredentials = true;
+const API_BASE_URL = "https://focustrail-backend.up.railway.app"; 
+
 
 export const useMoodStore = create((set) =>({
     moods:[],
@@ -11,12 +11,11 @@ export const useMoodStore = create((set) =>({
     latestMood: null,
 
     addMood: async( mood ) =>{
-        const token = localStorage.getItem("token");
         set({error:null});
         try{
+             const token = localStorage.getItem("token");
             const response = await axios.post(`${API_BASE_URL}/api/auth/mood`,{mood},{
                 headers:{Authorization:`Bearer ${token}`}
-
             });
             set({todayMood: response.data.mood, error:null});
         }
@@ -27,9 +26,9 @@ export const useMoodStore = create((set) =>({
     },
 
     fetchTodayMood: async () =>{
-        const token = localStorage.getItem("token");
         set({error:null});
         try{
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${API_BASE_URL}/api/auth/mood/today`  ,{
                 headers:{Authorization:`Bearer ${token}`}
 
@@ -42,9 +41,9 @@ export const useMoodStore = create((set) =>({
     },
 
         fetchDateMood: async (date) =>{
-        const token = localStorage.getItem("token");
-        set({error:null});
-        try{
+            set({error:null});
+            try{
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${API_BASE_URL}/api/auth/mood/datemoods/${date}`  ,{
                 headers:{Authorization:`Bearer ${token}`}
 
@@ -67,9 +66,9 @@ export const useMoodStore = create((set) =>({
 
 
     fetchMoodHistory: async()=>{
-        const token = localStorage.getItem("token");
         set({ error:null});
         try{
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${API_BASE_URL}/api/auth/mood/history`,{
                 headers:{Authorization:`Bearer ${token}`}
             });
