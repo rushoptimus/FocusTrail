@@ -4,22 +4,17 @@ import axios from "axios";
 const API_BASE_URL = 'https://focustrail-backend.up.railway.app'; 
 axios.defaults.withCredentials = true;
 
-export const useMoodStore = create((set, get) =>({
+export const useMoodStore = create((set) =>({
     moods:[],
     todayMood:null,
     error:null,
     latestMood: null,
-    token: localStorage.getItem('token') || null, // Get token on init
-
-  setToken: (token) => {
-    localStorage.setItem('token', token);
-    set({ token });
-  },
+    
 
     addMood: async( mood ) =>{
         set({error:null});
         try{
-         const token = get().token;
+            const token = localStorage.getItem("token");
             const response = await axios.post(`${API_BASE_URL}/api/auth/mood`,{mood},{
                 headers:{Authorization:`Bearer ${token}`}
 
@@ -35,7 +30,7 @@ export const useMoodStore = create((set, get) =>({
     fetchTodayMood: async () =>{
         set({error:null});
         try{
-         const token = get().token;
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${API_BASE_URL}/api/auth/mood/today`  ,{
                 headers:{Authorization:`Bearer ${token}`}
 
@@ -50,7 +45,7 @@ export const useMoodStore = create((set, get) =>({
         fetchDateMood: async (date) =>{
             set({error:null});
             try{
-         const token = get().token;
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${API_BASE_URL}/api/auth/mood/datemoods/${date}`  ,{
                 headers:{Authorization:`Bearer ${token}`}
 
@@ -75,7 +70,7 @@ export const useMoodStore = create((set, get) =>({
     fetchMoodHistory: async()=>{
         set({ error:null});
         try{
-         const token = get().token;
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${API_BASE_URL}/api/auth/mood/history`,{
                 headers:{Authorization:`Bearer ${token}`}
             });
