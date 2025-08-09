@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useAuthStore } from '../store/authStore';
 import { useNavigate } from 'react-router-dom';
-import DashboardFrame from '../Components/dashboardFrame';
+import DashboardFrame from '../Components/DashboardFrame';
 import Nav from '../Components/Nav';
-import Welcome from '../Components/Welcome';
 import Dash_Total_Task from '../Components/Dash_Total_Task';
 import Profile from "../Components/Profile"
 import ProgressMap from '../Components/ProgressMap';
