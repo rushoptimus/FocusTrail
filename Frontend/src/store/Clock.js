@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from "axios";
 import toast from 'react-hot-toast';
 
-const API_BASE_URL = "https://focustrail-backend.up.railway.app";
+const API_BASE_URL = "https://focustrail-backend.up.railway.app/api/auth";
 
 export const useClockStore = create((set) => ({
   sessions: [],

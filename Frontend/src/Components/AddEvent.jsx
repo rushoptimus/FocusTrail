@@ -4,7 +4,6 @@ import { useEventStore } from '../store/eventStore';
 
 const AddEvent = ({ setAddPopUp }) => {
   const { addEvent } = useEventStore();
-
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [startTime, setStartTime] = useState('');
@@ -35,6 +34,7 @@ const AddEvent = ({ setAddPopUp }) => {
       setStartTime("");
       setEndTime("");
       SetDate("");
+
     } catch (error) {
       console.error("Error adding event:", error.message);
       toast.error("Failed to add Event");
@@ -51,7 +51,8 @@ const AddEvent = ({ setAddPopUp }) => {
                <div className='flex items-end justify-end w-[90%]   '>
                 <div className='flex items-center justify-between w-full  '>
                     <h3 className="font-bold lg:text-2xl md:text-xl sm:text-xl text-lg bg-black text-white px-4 py-1 rounded-full   ">Add New Event</h3>
-                    <button className='rounded-full bg-black text-white shadow-md shadow-gray-200 w-8 h-8 p-2 cursor-pointer text-xl flex items-center justify-center'  onClick={setAddPopUp}  > x </button>
+                    <button className='rounded-full bg-black text-white shadow-md shadow-gray-200 w-8 h-8 p-2 cursor-pointer
+                     text-xl flex items-center justify-center'  onClick={setAddPopUp}  > x </button>
                 </div>
             </div>
      
