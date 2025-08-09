@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardFrame from "../Components/dashboardFrame";
+import DashboardFrame from "../Components/DashboardFrame";
 import { useNavigate } from "react-router-dom";
 import Nav from "../Components/Nav";
 import { useAuthStore } from "../store/authStore";

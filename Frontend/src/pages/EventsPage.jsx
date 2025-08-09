@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthStore } from "../store/authStore";
 
 import { useNavigate } from "react-router-dom";
-import DashboardFrame from "../Components/dashboardFrame";
+import DashboardFrame from "../Components/DashboardFrame";
 import Nav from "../Components/Nav";
 import EventsMap from "../Components/EventsMap";
 import AddEvent from "../Components/AddEvent";
