@@ -19,6 +19,11 @@ const PORT=  process.env.PORT || 5000;
 app.use(cors({ origin: 'http://localhost:5173', credentials: true })); // Adjust the origin as needed
 app.use(express.json());
 app.use(cookieParser()); // allows us to parse incoming cookies
+
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 app.use("/api/auth",authRoutes)
 app.use("/api/auth",moodRoutes)
 app.use("/api/auth",taksRoutes)
