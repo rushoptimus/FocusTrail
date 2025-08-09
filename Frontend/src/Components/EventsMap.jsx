@@ -69,7 +69,7 @@ const EventsMap = ({ editingEvent, setEditingEvent }) => {
           <div className='flex flex-col gap-4'>
 
             <h2 className="lg:text-2xl md:text-lg text-md    rounded-[1vh] py-2
-                             px-4 gap-4  bg-zinc-500 text-white  shadow-lg shadow-gray-300 flex items-center  font-bold   ">
+                             px-4 gap-4  bg-zinc-800 text-white  shadow-lg shadow-gray-300 flex items-center  font-bold   ">
               <div className='lg:w-3 lg:h-3 w-2 h-2 rounded-full bg-white'></div>Upcoming Events</h2>
           </div>
   
@@ -131,7 +131,7 @@ const EventsMap = ({ editingEvent, setEditingEvent }) => {
           <div className='flex flex-col gap-4'>
 
             <h2 className="lg:text-2xl md:text-lg text-md    rounded-[1vh] py-2
-                             px-4 gap-4  bg-zinc-500 text-white  shadow-lg shadow-gray-300 flex items-center  font-bold   ">
+                             px-4 gap-4  bg-zinc-800 text-white  shadow-lg shadow-gray-300 flex items-center  font-bold   ">
               <div className='lg:w-3 lg:h-3 w-2 h-2 rounded-full bg-white'></div>Past Events</h2>
           </div>
           <div className="space-y-2 lg:pl-4 mb-6 mt-4">
@@ -145,7 +145,7 @@ const EventsMap = ({ editingEvent, setEditingEvent }) => {
               <div className='flex flex-col  ml-2 gap-2 lg:w-[70%] md:w-[90%] w-[95%]'>
 
                   <h3 className="font-bold lg:text-lg md:text-md text-md flex items-center gap-2">
-                    <div className='w-2 h-2 bg-zinc-300 rounded-full'></div>
+                    <div className='w-2 h-2 bg-zinc-800 rounded-full'></div>
                         {event.title}</h3>
                   {event.description && <p className="lg:text-md md:text-sm text-sm text-white font-semibold ml-3 ">
                     Description: {event.description}</p>}
