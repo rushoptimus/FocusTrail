@@ -91,7 +91,9 @@ export const login = async (req, res) => {
          await user.save();
 
          res.status(200).json({
-             success: true, message: "User logged in successfully",
+             success: true,
+              message: "User logged in successfully",
+               token,
              user: {
                  ...user._doc,
                  password: undefined,

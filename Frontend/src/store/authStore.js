@@ -56,6 +56,7 @@ export const useAuthStore = create(
             set({ error: null });
             try {
                 const response = await axios.post(`${API_BASE_URL}/api/auth/login`, { email, password },{ withCredentials: true });
+                localStorage.setItem("authToken", response.data.token);
                 set({ user: response.data.user, isAuthenticated: true , error: null });
             } catch (error) {
                 set({ error: error.response?.data?.message || 'An error occurred during login.' });
