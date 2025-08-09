@@ -1,5 +1,5 @@
 import { useAuthStore } from '../store/authStore';
-import StartInputFrame from '../components/StartInputFrame';
+import StartInputFrame from '../Components/StartInputFrame';
 import { useNavigate, useParams } from 'react-router-dom';      
 import toast from 'react-hot-toast';
 import { useState } from 'react';

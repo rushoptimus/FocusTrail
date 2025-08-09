@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import StartInputFrame from '../components/StartInputFrame';
+import StartInputFrame from '../Components/StartInputFrame';
 import good from "../MoodEmojis/good.svg";
 import happy from "../MoodEmojis/happy.svg";
 import angry from "../MoodEmojis/angry.svg";

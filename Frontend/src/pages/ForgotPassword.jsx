@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuthStore } from '../store/authStore';
-import StartInputFrame from '../components/StartInputFrame';
+import StartInputFrame from '../Components/StartInputFrame';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 const ForgotPassword = () => {
