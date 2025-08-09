@@ -53,7 +53,7 @@ const SignUp = () => {
                             type="text"
                             placeholder="Work Title"
                             className="w-full outline-none"
-                            onChange={(e) => setTitle(e.target.Title)}
+                            onChange={(e) => setTitle(e.target.value)}
                             value={Title}
                         
                         />

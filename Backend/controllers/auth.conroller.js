@@ -12,7 +12,7 @@ import { sendWelcomeEmail } from "../utils/sendWelcomeEmail.js";
 export const signup = async (req, res) => {
     const { email, password, name , Title } = req.body;
     try {
-        if (!email || !password || !name || Title) {
+        if (!email || !password || !name ) {
             throw new Error("All fields are required")
         }
         const UserAlreadyExist = await User.findOne({ email });
