@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
-import StartInputFrame from '../components/StartInputFrame'
 import { useNavigate } from 'react-router-dom'
+import StartInputFrame from "../Components/StartInputFrame"
 import { useAuthStore } from '../store/authStore';
 import toast from 'react-hot-toast';
 function VerifyEmail() {
