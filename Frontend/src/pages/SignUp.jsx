@@ -28,7 +28,7 @@ const SignUp = () => {
 
     return (
         <StartInputFrame>
-            <div className='lg:p-5 p-1 w-full  mx-auto'>
+            <div className='lg:p-5 p-1 w-full   mx-auto'>
                 <h1 className="lg:text-4xl text-3xl font-bold mb-4 text-center mt-4">FocusTrail</h1>
                 <h2 className="lg:text-xl text-lg font-medium mb-4 text-center">Create your FocusTrail Account</h2>
 

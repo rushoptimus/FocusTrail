@@ -23,7 +23,7 @@ const ForgotPassword = () => {
   }
   return (
     <StartInputFrame>
-      <div className='w-full flex flex-col items-center justify-center'>
+      <div className='w-full py-[3vh] flex flex-col items-center justify-center'>
         
       <h2 className="text-3xl font-bold mb-4 text-center">Forgot Password</h2>
       <h2 className="lg:text-xl text-lg font-semibold mb-4 text-center capitalize ">Enter your email to reset your password</h2>

@@ -31,6 +31,9 @@ const ResetPassword = () => {
   return (
     
      <StartInputFrame>
+        <div className='w-full h-full flex flex-col items-center justify-center gap-4 py-[3vh]'>
+
+
                         <h1 className='font-bold lg:text-4xl md:text-3xl text-2xl mb-2'>Reset Password</h1>
     <form onSubmit={handleResetPassword} className="flex flex-col gap-6  w-full" >
 
@@ -79,6 +82,8 @@ const ResetPassword = () => {
                     </button>
    
         </form>
+
+        </div>
      </StartInputFrame>
    
   )

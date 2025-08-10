@@ -24,7 +24,7 @@ const Nav = ({ handleLogout }) => {
         <h2 className='lg:text-3xl md:text-2xl text-2xl font-bold'>FocusTrail</h2>
 
         {/* Desktop Nav */}
-        <div className='lg:flex hidden gap-10 items-center justify-center text-lg   font-bold'>
+        <div className='lg:flex hidden gap-10 items-center justify-center xl:text-lg text-md   font-bold'>
           {navItems.map((item, index) => (
             <Link key={index} to={item.path}>
               {item.name}

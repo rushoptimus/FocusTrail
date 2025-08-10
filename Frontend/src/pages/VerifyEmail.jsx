@@ -40,6 +40,23 @@ function VerifyEmail() {
         }
     }
 
+const handlePaste = (e) => {
+  e.preventDefault();
+  const paste = e.clipboardData.getData("text").trim().slice(0, 6);
+  const pasteArray = paste.split("");
+
+  const newCode = [...code];
+  pasteArray.forEach((char, i) => {
+    newCode[i] = char;
+  });
+
+  setCode(newCode);
+
+  const lastFilledIndex = pasteArray.length - 1;
+  if (inputRefs.current[lastFilledIndex]) {
+    inputRefs.current[lastFilledIndex].focus();
+  }
+};
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,6 +91,7 @@ function VerifyEmail() {
                                     value={digit}
                                     onChange={(e) => { handleChange(index, e.target.value) }}
                                     onKeyDown={(e) => handleKeyDown(index, e)}
+                                    onPaste={handlePaste}
                                     className='lg:w-14 lg:h-14 md:w-14 md:h-14 w-8 h-8 p-2 text-center border rounded'
                                 />
                             ))}
