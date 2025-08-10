@@ -24,16 +24,10 @@ SetShowEdit(!showEdit);
   }
 
   return (
-    <div className='relative'>
-      {
-        showEdit === true ? 
-       <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
-        <EditNameTitle />
-        </div>
-         : ""
-      }
+    <>
+      
       {/* Main Navbar */}
-      <nav className='w-[90%] h-[5vh] px-[5%] lg:py-[1.5%] md:py-[1.5%] py-[5%] mt-[2%] flex items-center justify-between shadow-xs shadow-yellow-50 bg-yellow-50 rounded-[5vh]'>
+      <nav className='w-[90%] relative h-[5vh] px-[5%] lg:py-[1.5%] md:py-[1.5%] py-[5%] mt-[2%] flex items-center justify-between shadow-xs shadow-yellow-50 bg-yellow-50 rounded-[5vh]'>
         <h2 className='lg:text-3xl md:text-2xl text-2xl font-bold'>FocusTrail</h2>
 
         {/* Desktop Nav */}
@@ -107,8 +101,15 @@ SetShowEdit(!showEdit);
           </button>
 
         </div>
+        {
+        showEdit === true ? 
+       <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
+        <EditNameTitle />
+        </div>
+         : ""
+      }
       </div>
-    </div>
+    </>
   );
 };
 
