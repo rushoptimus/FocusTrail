@@ -85,7 +85,7 @@ const TaskMapAll = () => {
               .map((task) => (
                 <div
                   key={task._id}
-                  className={`p-4 rounded-[5vh]  shadow-md text-black capitalize flex lg:flex-row flex-col lg:gap-0 gap-4 justify-between items-center ${pendComp(task)} `}>
+                  className={`p-4 lg:rounded-[5vh] rounded-[2vh]  shadow-md text-black capitalize flex lg:flex-row flex-col lg:gap-0 gap-4 justify-between items-center ${pendComp(task)} `}>
                   <div>
                     <h3 className="font-bold xl:text-lg lg:text-lg  md:text-lg sm:text-md lg:mb-0 md:mb-0 mb-2 text-xs flex items-center gap-2 ">   
                        <div className={` w-2 h-2 lg:flex md:flex hidden rounded-full ${getTaskColor(task)} `}></div>{task.title}</h3>
