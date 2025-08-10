@@ -34,7 +34,7 @@ const Nav = ({ handleLogout }) => {
         <div className='lg:flex hidden relative gap-10 items-center justify-center xl:text-lg text-md   font-bold'>
           {
             showEdit === true ?
-              <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
+              <div className=" fixed inset-0 items-center  w-full h-screen z-1000 flex  justify-center bg-black/40">
                 <EditNameTitle />
               </div>
               : ""
@@ -47,7 +47,7 @@ const Nav = ({ handleLogout }) => {
 
           <button
             onClick={() => {
-              handleEditShow
+              handleEditShow()
             }}
             className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
           >
@@ -106,7 +106,7 @@ const Nav = ({ handleLogout }) => {
           {/*  */}
           <button
             onClick={() => {
-              handleEditShow
+              handleEditShow()
             }}
             className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
           >
