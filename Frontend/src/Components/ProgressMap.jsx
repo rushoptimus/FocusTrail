@@ -99,7 +99,7 @@ const ProgressMap = () => {
                     legend: { display: false },
                     tooltip: {
                       callbacks: {
-                        label: (context) => { 
+                           label: (context) => { 
                             const decimalHours = context.raw ?? 0;
                             const hours = Math.floor(decimalHours);
                             const minutes = Math.round((decimalHours - hours) * 60);
@@ -108,6 +108,7 @@ const ProgressMap = () => {
                       },
                     },
                   },
+                  
                   scales: {
                     y: {
                       beginAtZero: true,
