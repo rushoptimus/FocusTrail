@@ -7,7 +7,7 @@ import { useAuthStore } from "../store/authStore";
 import AddTask from "../Components/AddTask";
 import TaskMapAll from "./TaskMapAll";
 import SearchDateTask from "../Components/SearchDateTask";
-
+import EditNameTitle from "../Components/EditNameTitle"
 const TasksPage = () => {
   const { logout } = useAuthStore();
   const navigate = useNavigate();
@@ -46,8 +46,8 @@ const TasksPage = () => {
               : ""
           }
           <div className="lg:mt-0 md:mt-0 mt-[2vh] w-full  flex items-center justify-center">
-          <Nav handleLogout={handleLogout} />
-          </div>
+        <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} show={show}/>
+   </div>
           <div className="w-[90%] lg:h-[85%] md:h-[85%] sm:h-[80%] h-[85%]  p-4 bg-yellow-50 rounded-[5vh] ">
             <div className="w-full h-auto flex lg:flex-row md:flex-row  flex-col lg:items-center md:items-center items-start justify-between gap-4 py-2 pl-[4%]  ">
               <div className="flex  rounded-full py-2 px-10 gap-4 items-center justify-center bg-zinc-900 text-white  shadow-lg shadow-gray-300 font-bold text-xl ">

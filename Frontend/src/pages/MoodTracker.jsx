@@ -19,7 +19,7 @@ import sad from "../MoodEmojis/sad.svg";
 import angry from "../MoodEmojis/angry.svg";
 import good from "../MoodEmojis/good.svg";
 import happy from "../MoodEmojis/happy.svg";
-
+import EditNameTitle from "../Components/EditNameTitle"
 const moodWeights = {
   cry: 1,
   sad: 2,
@@ -241,8 +241,7 @@ const MoodTracker = () => {
               <EditNameTitle handleEditShow={handleEditShow} />
               </div>
               : ""
-          }
-        <Nav handleLogout={handleLogout} />
+          } <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} show={show}/>
 
         <div className="bg-yellow-50 lg:w-[90%] md:w-[90%] w-[95%] lg:h-[83%] mt-[2.5%] lg:pb-0 pb-[3vh] lg:mb-0 mb-[2vh] rounded-[5vh]">
           <div className="w-[90%] mx-auto lg:mt-[1.5vh] mt-[3vh]   p-2 flex items-center justify-center h-auto bg-black text-white rounded-full text-2xl font-semibold">

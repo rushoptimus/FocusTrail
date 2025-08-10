@@ -13,6 +13,7 @@ import { useTaskStore } from '../store/task';
 import { useClockStore } from '../store/Clock';
 import Profile from '../Components/Profile';
 import Dashboard_component_frames from '../Components/Dashboard_component_frames';
+import EditNameTitle from "../Components/EditNameTitle"
 
 const Insights = () => {
     const navigate = useNavigate();
@@ -178,7 +179,8 @@ body: todayMood.moods.map((m, i) => {
               : ""
           }
                     <div className="lg:mt-0 md:mt-0 mt-[2vh] w-full  flex items-center justify-center">
-                        <Nav handleLogout={handleLogout} />
+                         <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} show={show}/>
+
                     </div>
                     {/*  */}
                     <div className=" flex bg-yellow-50 mx-auto w-[90%]  rounded-full  p-2  items-center justify-end  gap-4">

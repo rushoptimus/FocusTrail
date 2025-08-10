@@ -9,6 +9,7 @@ import AddEvent from "../Components/AddEvent";
 import UpdateEvent from "../Components/UdateEvent";
 import { useEventStore } from "../store/eventStore";
 import { useEffect } from "react";
+import EditNameTitle from "../Components/EditNameTitle"
 const EventsPage = () => {
   const { fetchEventsByDate, updateCompletedStatusEvent } = useEventStore();
   const { logout } = useAuthStore();
@@ -58,8 +59,8 @@ const EventsPage = () => {
               </div>
               : ""
           }
-          <Nav handleLogout={handleLogout} />
-
+         <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} show={show}/>
+        
           <div className="w-[90%] lg:h-[85%] md:h-[85%] h-[88%]  p-4 bg-yellow-50 rounded-[5vh] flex flex-col gap-2 ">
             <div className="flex lg:flex-row flex-col  lg:gap-0 gap-4">
               <div className="w-full h-auto flex items-center justify-between gap-4 py-2 pl-[4%] pr-[2%]  ">
