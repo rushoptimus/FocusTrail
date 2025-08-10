@@ -35,7 +35,7 @@ const Nav = ({ handleLogout }) => {
           {
             showEdit === true ?
               <div className=" fixed inset-0 items-center  w-full h-screen z-1000 flex  justify-center bg-black/40">
-                <EditNameTitle />
+                <EditNameTitle handleEditShow={handleEditShow} />
               </div>
               : ""
           }
@@ -49,7 +49,7 @@ const Nav = ({ handleLogout }) => {
             onClick={() => {
               handleEditShow()
             }}
-            className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
+            className="bg-zinc-900 text-white px-4 py-2 rounded-full  flex items-center gap-2 "
           >
             <Settings size={20} />
           </button >
@@ -89,7 +89,7 @@ const Nav = ({ handleLogout }) => {
           {
             showEdit === true ?
               <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
-                <EditNameTitle />
+                <EditNameTitle handleEditShow={handleEditShow} />
               </div>
               : ""
           }
@@ -108,7 +108,7 @@ const Nav = ({ handleLogout }) => {
             onClick={() => {
               handleEditShow()
             }}
-            className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
+            className="bg-zinc-900 text-white px-4 py-2 rounded-full  flex items-center gap-2 "
           >
             <Settings size={20} />
           </button >

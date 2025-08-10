@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import {useAuthStore} from "../store/authStore" 
 // your zustand store
 
-const EditNameTitle = ({ ShowEditPopUp }) => {
+const EditNameTitle = ({ handleEditShow }) => {
   const { user, updateNameAndTitle } = useAuthStore();
 
   const [name, setName] = useState(user?.name || '');
@@ -20,7 +20,7 @@ const EditNameTitle = ({ ShowEditPopUp }) => {
     try {
       await updateNameAndTitle(name, title);
       toast.success("Profile updated!");
-      ShowEditPopUp(false);
+      handleEditShow()
     } catch (err) {
       console.error("Update error:", err);
       toast.error(err.message || "Failed to update profile");
@@ -28,7 +28,7 @@ const EditNameTitle = ({ ShowEditPopUp }) => {
   };
 
   const Close = () => {
-    ShowEditPopUp(false);
+    handleEditShow()
   };
 
   return (
