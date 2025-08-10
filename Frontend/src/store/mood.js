@@ -47,7 +47,11 @@ export const useMoodStore = create((set) => ({
         error: null,
       });
     } catch (error) {
-      set({ error: error.response?.data?.message || "Failed to fetch date mood." });
+      set({
+      todayMood: null,   // clear old mood
+      latestMood: null,  // clear old latest mood
+      error: error.response?.data?.message || "Failed to fetch date mood.",
+    });
     }
   },
 
