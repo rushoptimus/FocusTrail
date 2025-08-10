@@ -36,7 +36,8 @@ const Dashboard = () => {
   const [taskPopup, ShowTaskPopUP] = useState(false);
   const [AddEventsPopUp, setAddPopUp] = useState(false);
   const [showEdit, SetShowEdit] = useState(false);
-
+  const [show, SetShow] = useState(false);
+  
 
   const setAddTaskTrue = () => {
     ShowTaskPopUP(!taskPopup)
@@ -46,7 +47,13 @@ const Dashboard = () => {
   }
   const handleEditShow = () => {
     SetShowEdit(!showEdit);
+    handleMobileNav();
   }
+
+  const handleMobileNav = () => {
+    SetShow(!show);
+  };
+
 
 
   return (
@@ -54,12 +61,12 @@ const Dashboard = () => {
 
       <DashboardFrame>
         <div className='w-full  h-full flex flex-col items-center lg:mt-0 md:mt-0 mt-[3vh]   lg:gap-[0%] md:gap-[0%] gap-[2vh]'>
-          <Nav handleLogout={handleLogout} handleEditShow={handleEditShow} />
+          <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} />
 
           <Dash_Total_Task name={user.name} setAddTaskTrue={setAddTaskTrue} setAddEventTrue={setAddEventTrue} />
           <div className='xl:w-[92%] lg:w-[98%] w-[95%] my-[1%] h-full  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-2 md:gap-6 gap-8'>
 
-            <div><Profile name={user.name} userTitle={user.Title} image={user.image} /></div>
+            <div><Profile show={show} name={user.name} userTitle={user.Title} image={user.image} /></div>
             <div><ProgressMap /></div>
             <div><Clock /></div>
               
@@ -73,8 +80,8 @@ const Dashboard = () => {
         </div>
           {
             showEdit === true ?
-              <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
-                <EditNameTitle handleEditShow={handleEditShow} />
+             <div className='lg:absolute fixed z-50 inset-0 items-center w-full lg:h-screen flex  justify-center bg-black/40'>
+              <EditNameTitle handleEditShow={handleEditShow} />
               </div>
               : ""
           }

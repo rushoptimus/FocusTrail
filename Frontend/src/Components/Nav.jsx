@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { LogOut, Menu, X } from 'lucide-react'; // X for close icon
 import { Settings } from 'lucide-react';
 
 
-const Nav = ({ handleLogout , handleEditShow }) => {
+const Nav = ({ handleLogout , handleEditShow , handleMobileNav , show}) => {
   const navItems = [
     { name: "Dashboard", path: "/dashboard" },
     { name: "Tasks", path: "/tasks" },
@@ -13,11 +13,6 @@ const Nav = ({ handleLogout , handleEditShow }) => {
     { name: "Insights", path: "/Insights" },
   ];
 
-  const [show, SetShow] = useState(false);
-
-  const handleMobileNav = () => {
-    SetShow(!show);
-  };
 
   return (
     <>
