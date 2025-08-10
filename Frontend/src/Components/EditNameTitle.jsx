@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { useAuthStore } from '../store/auth'; // your zustand store
+import {useAuthStore} from "../store/authStore" 
+// your zustand store
 
 const EditNameTitle = ({ ShowEditPopUp }) => {
   const { user, updateNameAndTitle } = useAuthStore();
