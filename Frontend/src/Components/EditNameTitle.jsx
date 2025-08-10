@@ -51,7 +51,7 @@ className="bg-[#feefdf] px-4 py-8 rounded-[5vh] shadow-sm lg:w-[70%] md:w-[80%] 
     >
     <form
       onSubmit={handleUpdate}
-      className='w-full '
+      className='w-full flex flex-col items-center justify-center gap-10 '
     >
       <div className="flex items-end justify-end w-[90%]">
         <div className="flex items-center justify-between w-full">
