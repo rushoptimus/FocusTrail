@@ -75,7 +75,7 @@ const EventsPage = () => {
             <div className="flex w-full h-auto items-center lg:justify-end justify-center lg:pr-10  lg:gap-8 md:gap-6 gap-1">
               <div
                 onClick={setAddTrue}
-                className="rounded-full flex items-center gap-2 lg:px-3 md:px-2 sm:px-2 px-3 py-2 font-semibold bg-zinc-900 text-white
+                className="rounded-full flex items-center gap-2 lg:px-3 md:px-2 sm:px-3 px-3 py-2 font-semibold bg-zinc-900 text-white
                              hover:bg-zinc-800  cursor-pointer shadow-lg shadow-gray-300 xl:text-lg lg:text-md  md:text-md sm:text-sm text-xs "
               >
                 {" "}
