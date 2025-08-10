@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LogOut, Menu, X } from 'lucide-react'; // X for close icon
 import { Settings } from 'lucide-react';
-import EditNameTitle from './EditNameTitle';
+import EditNameTitle from '../Components/EditNameTitle';
 
 const Nav = ({ handleLogout }) => {
   const navItems = [
