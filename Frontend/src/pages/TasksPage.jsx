@@ -17,6 +17,18 @@ const TasksPage = () => {
   };
   const [selectedDate, setSelectedDate] = useState(new Date()); // defaults to today
   const [taskPopup, ShowTaskPopUP] = useState(false);
+    const [showEdit, SetShowEdit] = useState(false);
+  const [show, SetShow] = useState(false);
+  
+
+  const handleEditShow = () => {
+    SetShowEdit(!showEdit);
+    SetShow(false);
+  }
+
+  const handleMobileNav = () => {
+    SetShow(!show);
+  };
 
   const setAddTrue = () => {
     ShowTaskPopUP(!taskPopup);
@@ -26,6 +38,13 @@ const TasksPage = () => {
     <>
       <DashboardFrame>
         <div className="w-full h-screen flex flex-col gap-[2.5%]  items-center  relative">
+            {
+            showEdit === true ?
+             <div className='lg:absolute fixed z-50 inset-0 items-center w-full lg:h-screen flex  justify-center bg-black/40'>
+              <EditNameTitle handleEditShow={handleEditShow} />
+              </div>
+              : ""
+          }
           <div className="lg:mt-0 md:mt-0 mt-[2vh] w-full  flex items-center justify-center">
           <Nav handleLogout={handleLogout} />
           </div>

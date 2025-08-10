@@ -96,7 +96,18 @@ const MoodTracker = () => {
   const [discussion, setDiscussion] = useState("");
   const [customPrompt, setCustomPrompt] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showEdit, SetShowEdit] = useState(false);
+  const [show, SetShow] = useState(false);
+  
 
+  const handleEditShow = () => {
+    SetShowEdit(!showEdit);
+    SetShow(false);
+  }
+
+  const handleMobileNav = () => {
+    SetShow(!show);
+  };
   const mood = latestMood?.mood; // Replace with the actual mood you want to display
 
   useEffect(() => {
@@ -223,7 +234,14 @@ const MoodTracker = () => {
   const fontSizeday = isMobileday ? 10 : 15;
   return (
     <DashboardFrame>
-      <div className="w-full  h-full flex flex-col items-center lg:mt-0 md:mt-0 pt-[3vh]   lg:gap-[0%] md:gap-[0%] gap-[2vh]">
+      <div className="w-full  h-full flex flex-col items-center lg:mt-0 md:mt-0 pt-[3vh]   lg:gap-[0%] md:gap-[0%] gap-[2vh] relative">
+          {
+            showEdit === true ?
+             <div className='lg:absolute fixed z-50 inset-0 items-center w-full lg:h-screen flex  justify-center bg-black/40'>
+              <EditNameTitle handleEditShow={handleEditShow} />
+              </div>
+              : ""
+          }
         <Nav handleLogout={handleLogout} />
 
         <div className="bg-yellow-50 lg:w-[90%] md:w-[90%] w-[95%] lg:h-[83%] mt-[2.5%] lg:pb-0 pb-[3vh] lg:mb-0 mb-[2vh] rounded-[5vh]">

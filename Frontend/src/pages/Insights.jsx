@@ -21,7 +21,18 @@ const Insights = () => {
     const { fetchDateMood, todayMood } = useMoodStore();
     const { fetchTasksByDate, tasks } = useTaskStore();
     const { fetchDateSessions, sessions } = useClockStore();
+  const [showEdit, SetShowEdit] = useState(false);
+  const [show, SetShow] = useState(false);
+  
 
+  const handleEditShow = () => {
+    SetShowEdit(!showEdit);
+    SetShow(false);
+  }
+
+  const handleMobileNav = () => {
+    SetShow(!show);
+  };
     useEffect(() => {
         fetchDateMood(date)
         fetchTasksByDate(date);
@@ -159,6 +170,13 @@ body: todayMood.moods.map((m, i) => {
         <>
             <DashboardFrame>
                 <div className="w-full lg:h-screen min-h-full  flex flex-col gap-[2vh]  items-center  relative">
+                      {
+            showEdit === true ?
+             <div className='lg:absolute fixed z-50 inset-0 items-center w-full lg:h-screen flex  justify-center bg-black/40'>
+              <EditNameTitle handleEditShow={handleEditShow} />
+              </div>
+              : ""
+          }
                     <div className="lg:mt-0 md:mt-0 mt-[2vh] w-full  flex items-center justify-center">
                         <Nav handleLogout={handleLogout} />
                     </div>

@@ -16,6 +16,18 @@ const EventsPage = () => {
   const [AddEventsPopUp, setAddPopUp] = useState(false);
   const [editingEvent, setEditingEvent] = useState(null);
   const [Searchdate, setEventDate] = useState();
+    const [showEdit, SetShowEdit] = useState(false);
+  const [show, SetShow] = useState(false);
+  
+
+  const handleEditShow = () => {
+    SetShowEdit(!showEdit);
+    SetShow(false);
+  }
+
+  const handleMobileNav = () => {
+    SetShow(!show);
+  };
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -39,6 +51,13 @@ const EventsPage = () => {
     <>
       <DashboardFrame>
         <div className="w-full h-screen pt-[2vh] flex flex-col gap-[2.5%] items-center  relative">
+            {
+            showEdit === true ?
+             <div className='lg:absolute fixed z-50 inset-0 items-center w-full lg:h-screen flex  justify-center bg-black/40'>
+              <EditNameTitle handleEditShow={handleEditShow} />
+              </div>
+              : ""
+          }
           <Nav handleLogout={handleLogout} />
 
           <div className="w-[90%] lg:h-[85%] md:h-[85%] h-[88%]  p-4 bg-yellow-50 rounded-[5vh] flex flex-col gap-2 ">
