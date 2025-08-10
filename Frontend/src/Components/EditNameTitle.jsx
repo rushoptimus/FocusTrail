@@ -46,10 +46,12 @@ const Delete = async () => {
 };
 
   return (
-    <>
+    <div 
+className="bg-[#feefdf] px-4 py-8 rounded-[5vh] shadow-sm lg:w-[70%] md:w-[80%] sm:w-[90%] w-[98%] flex flex-col items-center justify-center gap-10"
+    >
     <form
       onSubmit={handleUpdate}
-      className="bg-[#feefdf] px-4 py-8 rounded-[5vh] shadow-sm lg:w-[70%] md:w-[80%] sm:w-[90%] w-[98%] flex flex-col items-center justify-center gap-10"
+      className='w-full '
     >
       <div className="flex items-end justify-end w-[90%]">
         <div className="flex items-center justify-between w-full">
@@ -108,7 +110,7 @@ const Delete = async () => {
   Delete User Completely
 </button>
 
-</>
+</div>
 
   );
 };
