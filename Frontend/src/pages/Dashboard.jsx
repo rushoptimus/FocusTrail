@@ -14,6 +14,7 @@ import AddTask from '../Components/AddTask';
 import AddEvent from '../Components/AddEvent';
 import { useTaskStore } from '../store/task';
 import { useEffect } from 'react';
+import EditNameTitle from "../Components/EditNameTitle"
 const Dashboard = () => {
 
 
@@ -34,6 +35,7 @@ const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date()); // defaults to today
   const [taskPopup, ShowTaskPopUP] = useState(false);
   const [AddEventsPopUp, setAddPopUp] = useState(false);
+  const [showEdit, SetShowEdit] = useState(false);
 
 
   const setAddTaskTrue = () => {
@@ -42,6 +44,9 @@ const Dashboard = () => {
   const setAddEventTrue = () => {
     setAddPopUp(!AddEventsPopUp);
   }
+  const handleEditShow = () => {
+    SetShowEdit(!showEdit);
+  }
 
 
   return (
@@ -49,7 +54,7 @@ const Dashboard = () => {
 
       <DashboardFrame>
         <div className='w-full  h-full flex flex-col items-center lg:mt-0 md:mt-0 mt-[3vh]   lg:gap-[0%] md:gap-[0%] gap-[2vh]'>
-          <Nav handleLogout={handleLogout} />
+          <Nav handleLogout={handleLogout} handleEditShow={handleEditShow} />
 
           <Dash_Total_Task name={user.name} setAddTaskTrue={setAddTaskTrue} setAddEventTrue={setAddEventTrue} />
           <div className='xl:w-[92%] lg:w-[98%] w-[95%] my-[1%] h-full  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-2 md:gap-6 gap-8'>
@@ -66,6 +71,13 @@ const Dashboard = () => {
             <div className='lg:col-span-2 md:col-span-2'><Calendar /></div>
           </div>
         </div>
+          {
+            showEdit === true ?
+              <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
+                <EditNameTitle handleEditShow={handleEditShow} />
+              </div>
+              : ""
+          }
         {
           taskPopup === true ?
             <div className='lg:absolute fixed z-50 inset-0 items-center w-full lg:h-screen flex  justify-center bg-black/40'>

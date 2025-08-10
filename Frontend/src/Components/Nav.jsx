@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LogOut, Menu, X } from 'lucide-react'; // X for close icon
 import { Settings } from 'lucide-react';
-import EditNameTitle from '../Components/EditNameTitle';
 
-const Nav = ({ handleLogout }) => {
+
+const Nav = ({ handleLogout , handleEditShow }) => {
   const navItems = [
     { name: "Dashboard", path: "/dashboard" },
     { name: "Tasks", path: "/tasks" },
@@ -15,13 +15,9 @@ const Nav = ({ handleLogout }) => {
 
   const [show, SetShow] = useState(false);
 
-  const [showEdit, SetShowEdit] = useState(false);
   const handleMobileNav = () => {
     SetShow(!show);
   };
-  const handleEditShow = () => {
-    SetShowEdit(!showEdit);
-  }
 
   return (
     <>
@@ -32,13 +28,7 @@ const Nav = ({ handleLogout }) => {
 
         {/* Desktop Nav */}
         <div className='lg:flex hidden relative gap-10 items-center justify-center xl:text-lg text-md   font-bold'>
-          {
-            showEdit === true ?
-              <div className=" fixed inset-0 items-center  w-full h-screen z-1000 flex  justify-center bg-black/40">
-                <EditNameTitle handleEditShow={handleEditShow} />
-              </div>
-              : ""
-          }
+      
           {navItems.map((item, index) => (
             <Link key={index} to={item.path}>
               {item.name}
@@ -86,13 +76,7 @@ const Nav = ({ handleLogout }) => {
 
         {/* Nav Items */}
         <div className="flex flex-col gap-6 relative text-lg font-medium ml-8 mt-6">
-          {
-            showEdit === true ?
-              <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
-                <EditNameTitle handleEditShow={handleEditShow} />
-              </div>
-              : ""
-          }
+        
           {navItems.map((item, index) => (
             <Link
               key={index}
