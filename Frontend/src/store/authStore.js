@@ -117,7 +117,24 @@ export const useAuthStore = create(
           set({ error: error.response?.data?.message || 'An error occurred while updating name/title.' });
           throw error;
         }
-      }
+      },
+      deleteAccount: async () => {
+  set({ error: null });
+  try {
+    await axios.delete(`${API_BASE_URL}/api/auth/delete-account`);
+    // Clear all user-related state
+    set({ user: null, isAuthenticated: false, error: null });
+    // Optionally clear auth token from localStorage
+    localStorage.removeItem("authToken");
+
+  } catch (error) {
+    set({
+      error: error.response?.data?.message || "An error occurred while deleting account."
+    });
+    throw error;
+  }
+}
+
     }),
 
 

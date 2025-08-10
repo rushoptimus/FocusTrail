@@ -1,4 +1,8 @@
 import { User } from "../models/user.model.js";
+import ClockSession from "../models/ClockSession.js";
+import Event from "../models/Event.model.js"
+import Mood from "../models/mood.model.js"
+import Task from "../models/Task.model.js";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import dotenv from "dotenv";
@@ -230,5 +234,28 @@ export const updateNameAndTitle = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
+    }
+};
+
+export const deleteUserAndData = async (req, res) => {
+    try {
+        const userID = req.userID; // from verifyToken middleware
+
+        await Promise.all([
+            User.findByIdAndDelete(userID),
+            ClockSession.deleteMany({ userId: userID }),
+            Event.deleteMany({ userId: userID }),
+            Mood.deleteMany({ userId: userID }),
+            Task.deleteMany({ userId: userID })
+        ]);
+
+        res.clearCookie("token"); // also log them out
+        res.status(200).json({
+            success: true,
+            message: "User and all related data deleted successfully"
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Failed to delete user" });
     }
 };

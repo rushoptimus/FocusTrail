@@ -4,7 +4,7 @@ import {useAuthStore} from "../store/authStore"
 // your zustand store
 
 const EditNameTitle = ({ handleEditShow }) => {
-  const { user, updateNameAndTitle } = useAuthStore();
+  const { user, updateNameAndTitle ,deleteAccount } = useAuthStore();
 
   const [name, setName] = useState(user?.name || '');
   const [title, setTitle] = useState(user?.Title || '');
@@ -31,7 +31,22 @@ const EditNameTitle = ({ handleEditShow }) => {
     handleEditShow()
   };
 
+const Delete = async () => {
+  if (!window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+    return;
+  }
+
+  try {
+    await deleteAccount();
+    toast.success("Account deleted successfully.");
+  } catch (err) {
+    console.error("Delete account error:", err);
+    toast.error(err.message || "Failed to delete account");
+  }
+};
+
   return (
+    <>
     <form
       onSubmit={handleUpdate}
       className="bg-[#feefdf] px-4 py-8 rounded-[5vh] shadow-sm lg:w-[70%] md:w-[80%] sm:w-[90%] w-[98%] flex flex-col items-center justify-center gap-10"
@@ -85,6 +100,16 @@ const EditNameTitle = ({ handleEditShow }) => {
         Save Changes
       </button>
     </form>
+     <button
+  onClick={Delete}
+  type="button"
+  className="bg-red-600 w-[50%] cursor-pointer lg:text-xl md:text-lg sm:text-md text-sm text-white py-2 rounded-full shadow-lg shadow-gray-400 hover:bg-red-500"
+>
+  Delete User Completely
+</button>
+
+</>
+
   );
 };
 
