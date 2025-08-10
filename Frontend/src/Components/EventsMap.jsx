@@ -76,7 +76,7 @@ const EventsMap = ({ editingEvent, setEditingEvent }) => {
 
 
 
-          <div className="space-y-4 pl-4">
+          <div className="space-y-4 lg:pl-4">
             {pendingGroups[date].map(event => (
               <div
                 key={event._id}
@@ -137,7 +137,7 @@ const EventsMap = ({ editingEvent, setEditingEvent }) => {
             {completedEvents.map(event => (
               <div
                 key={event._id}
-            className={`p-4 lg:rounded-full rounded-[5vh] shadow-md  capitalize flex lg:flex-row flex-col lg:gap-0 gap-4 justify-between items-center   ${event.status === "Completed" ? " bg-zinc-500 text-zinc-300" : "bg-green-300"} `}
+            className={`p-4 lg:rounded-full rounded-[2vh] shadow-md  capitalize flex lg:flex-row flex-col lg:gap-0 gap-4 justify-between items-center   ${event.status === "Completed" ? " bg-zinc-500 text-zinc-300" : "bg-green-300"} `}
               >
 
 
