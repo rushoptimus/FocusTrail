@@ -61,7 +61,7 @@ const Dashboard = () => {
 
       <DashboardFrame>
         <div className='w-full  h-full flex flex-col items-center lg:mt-0 md:mt-0 mt-[3vh]   lg:gap-[0%] md:gap-[0%] gap-[2vh]'>
-          <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} />
+          <Nav handleMobileNav={handleMobileNav} handleLogout={handleLogout} handleEditShow={handleEditShow} show={show}/>
 
           <Dash_Total_Task name={user.name} setAddTaskTrue={setAddTaskTrue} setAddEventTrue={setAddEventTrue} />
           <div className='xl:w-[92%] lg:w-[98%] w-[95%] my-[1%] h-full  grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-2 md:gap-6 gap-8'>
