@@ -98,7 +98,31 @@ export const useAuthStore = create(
             }
         },
 
+
+        
+
+          updateNameAndTitle: async (name, Title) => {
+        set({ error: null });
+        try {
+          const response = await axios.put(
+            `${API_BASE_URL}/api/auth/update-name-title`,
+            { name, Title }
+          );
+          // Update the local user state without reloading
+          set((state) => ({
+            user: { ...state.user, name, Title }
+          }));
+          return response.data;
+        } catch (error) {
+          set({ error: error.response?.data?.message || 'An error occurred while updating name/title.' });
+          throw error;
+        }
+      }
     }),
+
+
+
+    
     {
         name: 'auth-storage', // Unique name for the storage
         partialize: (state) =>({

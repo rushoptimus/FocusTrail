@@ -1,5 +1,5 @@
 import express from "express";
-import { login, logout, signup ,verifyEmail ,forgotPassword, resetPassword,checkAuth} from "../controllers/auth.conroller.js";
+import { login, logout, signup ,verifyEmail ,forgotPassword, resetPassword,checkAuth ,updateNameAndTitle} from "../controllers/auth.conroller.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
 import { updateProfileImage } from "../controllers/auth.conroller.js";
 
@@ -16,5 +16,6 @@ router.post("/forgot-password", forgotPassword)
 
 router.post("/reset-password/:token",resetPassword  )
 router.put("/update-profile-image", verifyToken, updateProfileImage);
- 
+router.put("/update-name-title", verifyToken, updateNameAndTitle);
+4 
 export default router;

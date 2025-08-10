@@ -198,3 +198,37 @@ export const updateProfileImage = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 };
+
+
+export const updateNameAndTitle = async (req, res) => {
+    try {
+        const { name, Title } = req.body;
+        const userID = req.userID; // from verifyToken middleware
+
+        if (!name && !Title) {
+            return res.status(400).json({ success: false, message: "At least one field (name or Title) is required" });
+        }
+
+        const updateFields = {};
+        if (name) updateFields.name = name;
+        if (Title) updateFields.Title = Title;
+
+        const user = await User.findByIdAndUpdate(
+            userID,
+            updateFields,
+            { new: true }
+        ).select("-password");
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Profile updated successfully",
+            user
+        });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LogOut, Menu, X } from 'lucide-react'; // X for close icon
+import { Settings } from 'lucide-react';
+import EditNameTitle from './EditNameTitle';
 
 const Nav = ({ handleLogout }) => {
   const navItems = [
@@ -13,12 +15,23 @@ const Nav = ({ handleLogout }) => {
 
   const [show, SetShow] = useState(false);
 
+  const [showEdit, SetShowEdit] = useState(false);
   const handleMobileNav = () => {
     SetShow(!show);
   };
+  const handleEditShow = () => {
+SetShowEdit(!showEdit);
+  }
 
   return (
-    <>
+    <div className='relative'>
+      {
+        showEdit === true ? 
+       <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
+        <EditNameTitle />
+        </div>
+         : ""
+      }
       {/* Main Navbar */}
       <nav className='w-[90%] h-[5vh] px-[5%] lg:py-[1.5%] md:py-[1.5%] py-[5%] mt-[2%] flex items-center justify-between shadow-xs shadow-yellow-50 bg-yellow-50 rounded-[5vh]'>
         <h2 className='lg:text-3xl md:text-2xl text-2xl font-bold'>FocusTrail</h2>
@@ -72,6 +85,17 @@ const Nav = ({ handleLogout }) => {
               {item.name}
             </Link>
           ))}
+          {/*  */}
+          <button
+            onClick={() => {
+           handleEditShow
+            }}
+            className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
+          >
+           <Settings size={20} />
+          </button >
+
+          {/*  */}
           <button
             onClick={() => {
               handleLogout();
@@ -81,9 +105,10 @@ const Nav = ({ handleLogout }) => {
           >
             Logout <LogOut size={20} />
           </button>
+
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

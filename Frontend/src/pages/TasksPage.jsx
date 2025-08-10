@@ -95,7 +95,7 @@ const TasksPage = () => {
             {/* need to show the taks view  */}
           </div>
           {taskPopup === true ? (
-            <div className="absolute items-center w-full h-screen flex  justify-center bg-black/40">
+            <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
               <AddTask
                 selectedDate={selectedDate}
                 ShowTaskPopUP={ShowTaskPopUP}
