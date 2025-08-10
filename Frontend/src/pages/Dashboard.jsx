@@ -47,7 +47,7 @@ const Dashboard = () => {
   }
   const handleEditShow = () => {
     SetShowEdit(!showEdit);
-    handleMobileNav();
+    SetShow(false);
   }
 
   const handleMobileNav = () => {
