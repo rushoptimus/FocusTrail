@@ -20,23 +20,40 @@ const Nav = ({ handleLogout }) => {
     SetShow(!show);
   };
   const handleEditShow = () => {
-SetShowEdit(!showEdit);
+    SetShowEdit(!showEdit);
   }
 
   return (
     <>
-      
+
       {/* Main Navbar */}
-      <nav className='w-[90%] relative h-[5vh] px-[5%] lg:py-[1.5%] md:py-[1.5%] py-[5%] mt-[2%] flex items-center justify-between shadow-xs shadow-yellow-50 bg-yellow-50 rounded-[5vh]'>
+      <nav className='w-[90%] h-[5vh] px-[5%] lg:py-[1.5%] md:py-[1.5%] py-[5%] mt-[2%] flex items-center justify-between shadow-xs shadow-yellow-50 bg-yellow-50 rounded-[5vh]'>
         <h2 className='lg:text-3xl md:text-2xl text-2xl font-bold'>FocusTrail</h2>
 
         {/* Desktop Nav */}
-        <div className='lg:flex hidden gap-10 items-center justify-center xl:text-lg text-md   font-bold'>
+        <div className='lg:flex hidden relative gap-10 items-center justify-center xl:text-lg text-md   font-bold'>
+          {
+            showEdit === true ?
+              <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
+                <EditNameTitle />
+              </div>
+              : ""
+          }
           {navItems.map((item, index) => (
             <Link key={index} to={item.path}>
               {item.name}
             </Link>
           ))}
+
+          <button
+            onClick={() => {
+              handleEditShow
+            }}
+            className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
+          >
+            <Settings size={20} />
+          </button >
+
           <button
             onClick={handleLogout}
             className="bg-zinc-900 text-white px-4 py-1 rounded-full flex items-center gap-2"
@@ -68,7 +85,14 @@ SetShowEdit(!showEdit);
         </div>
 
         {/* Nav Items */}
-        <div className="flex flex-col gap-6 text-lg font-medium ml-8 mt-6">
+        <div className="flex flex-col gap-6 relative text-lg font-medium ml-8 mt-6">
+          {
+            showEdit === true ?
+              <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
+                <EditNameTitle />
+              </div>
+              : ""
+          }
           {navItems.map((item, index) => (
             <Link
               key={index}
@@ -82,11 +106,11 @@ SetShowEdit(!showEdit);
           {/*  */}
           <button
             onClick={() => {
-           handleEditShow
+              handleEditShow
             }}
             className="bg-zinc-900 text-white px-4 py-2 rounded-full mt-4 flex items-center gap-2 w-fit"
           >
-           <Settings size={20} />
+            <Settings size={20} />
           </button >
 
           {/*  */}
@@ -101,13 +125,7 @@ SetShowEdit(!showEdit);
           </button>
 
         </div>
-        {
-        showEdit === true ? 
-       <div className="lg:absolute fixed items-center  w-full h-screen flex  justify-center bg-black/40">
-        <EditNameTitle />
-        </div>
-         : ""
-      }
+
       </div>
     </>
   );
