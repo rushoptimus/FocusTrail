@@ -65,7 +65,7 @@ const handlePaste = (e) => {
             await VerifyEmail(verificationCode);
             await checkAuth();
             toast.success("Email verified successfully!");
-            navigate('/moodPage');
+            navigate('/moodPage', { replace: true });
         }
         catch (error) {
             console.error("Error verifying email:", error);
